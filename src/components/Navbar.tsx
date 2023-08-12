@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { CartIcon, ChevronDownIcon, FavoriteIcon, ProfileIcon, SearchIcon } from './Icons';
 import { useState } from 'react';
 import CartMenu from './CartMenu';
+import { useAppSelector } from '@/hooks/store';
 
 const Navbar = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
+  const products = useAppSelector((state) => state.cart.products);
 
   return (
     <section className="h-20 ">
@@ -57,7 +59,7 @@ const Navbar = () => {
             >
               <CartIcon />
               <span className="text-xs w-5 h-5 rounded-full bg-blue-500 text-white absolute -right-2 -top-2 flex items-center justify-center">
-                0
+                {products.length}
               </span>
             </div>
           </div>

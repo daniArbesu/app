@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { type APIProductData } from '../../../types';
 
 interface Props {
-  product: APIProductData;
+  product: APIProductData | null;
 }
 
 const SingleProductImages: React.FC<Props> = ({ product }) => {
@@ -12,9 +12,11 @@ const SingleProductImages: React.FC<Props> = ({ product }) => {
 
   const images = [
     (process.env.NEXT_PUBLIC_STRAPI_IMAGES_URL as string) +
-      product.attributes?.img?.data.attributes.url,
+      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+      product?.attributes?.img?.data.attributes.url,
     (process.env.NEXT_PUBLIC_STRAPI_IMAGES_URL as string) +
-      product.attributes?.img2?.data.attributes.url
+      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+      product?.attributes?.img2?.data.attributes.url
   ];
 
   return (

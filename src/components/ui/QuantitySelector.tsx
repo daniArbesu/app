@@ -1,9 +1,9 @@
-'use client';
-import { useState } from 'react';
+interface Props {
+  quantity: number;
+  setQuantity: (quantity: number) => void;
+}
 
-const QuantitySelector = () => {
-  const [quantity, setQuantity] = useState(1);
-
+const QuantitySelector: React.FC<Props> = ({ quantity, setQuantity }) => {
   return (
     <div className="flex items-center gap-3">
       <button
