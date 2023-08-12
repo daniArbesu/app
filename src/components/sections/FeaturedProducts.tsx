@@ -1,3 +1,4 @@
+import { APIData } from '../../../types';
 import Card from '../Card';
 
 interface Props {
