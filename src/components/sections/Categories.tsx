@@ -12,7 +12,7 @@ const CategoriesSection = () => {
             className="w-full h-full object-cover"
           />
           <Link
-            href={'/products/1'}
+            href={'/products/category/3'}
             className="absolute min-w-[100] h-12 p-2 top-0 bottom-0 left-0 right-0 m-auto w-fit bg-white uppercase flex items-center content-center font-medium"
           >
             Sale
@@ -26,7 +26,7 @@ const CategoriesSection = () => {
             className="w-full h-full object-cover"
           />
           <Link
-            href={'/products/1'}
+            href={'/products/category/1'}
             className="absolute min-w-[100] h-12 p-2 top-0 bottom-0 left-0 right-0 m-auto w-fit bg-white uppercase flex items-center content-center font-medium"
           >
             Women
@@ -42,7 +42,7 @@ const CategoriesSection = () => {
             className="w-full h-full object-cover"
           />
           <Link
-            href={'/products/1'}
+            href={'/products/category/4'}
             className="absolute min-w-[100] h-12 p-2 top-0 bottom-0 left-0 right-0 m-auto w-fit bg-white uppercase flex items-center content-center font-medium"
           >
             New Season
@@ -60,7 +60,7 @@ const CategoriesSection = () => {
                 className="w-full h-full object-cover"
               />
               <Link
-                href={'/products/1'}
+                href={'/products/category/2'}
                 className="absolute min-w-[100] h-12 p-2 top-0 bottom-0 left-0 right-0 m-auto w-fit bg-white uppercase flex items-center content-center font-medium"
               >
                 Men
@@ -76,7 +76,7 @@ const CategoriesSection = () => {
                 className="w-full h-full object-cover"
               />
               <Link
-                href={'/products/1'}
+                href={'/products/category/5'}
                 className="absolute min-w-[100] h-12 p-2 top-0 bottom-0 left-0 right-0 m-auto w-fit bg-white uppercase flex items-center content-center font-medium"
               >
                 Accesories
@@ -92,7 +92,7 @@ const CategoriesSection = () => {
             className="w-full h-full object-cover"
           />
           <Link
-            href={'/products/1'}
+            href={'/products/category/6'}
             className="absolute min-w-[100] h-12 p-2 top-0 bottom-0 left-0 right-0 m-auto w-fit bg-white uppercase flex items-center content-center font-medium"
           >
             Shoes

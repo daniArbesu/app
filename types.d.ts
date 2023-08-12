@@ -1,14 +1,14 @@
 export interface APIResponse {
-  data: Datum[];
+  data: APIData[];
   meta: Meta;
 }
 
 export interface APIData {
   id: number;
-  attributes: CardItem;
+  attributes: Product | Subcategory;
 }
 
-export interface CardItem {
+export interface Product {
   title: string;
   description: string;
   price: number;
@@ -20,6 +20,13 @@ export interface CardItem {
   type: string;
   img: Img;
   img2: Img;
+}
+
+export interface Subcategory {
+  title: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
 }
 
 export interface Img {

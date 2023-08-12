@@ -1,6 +1,7 @@
+import fetchAPI from '@/utils/fetchAPI';
 import Card from './Card';
 
-const mockData = [
+/* const mockData = [
   {
     id: 1,
     img: 'https://images.unsplash.com/photo-1593164842264-854604db2260?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
@@ -37,20 +38,21 @@ const mockData = [
     oldPrice: 19,
     price: 12
   }
-];
+]; */
 
 interface Props {
-  category: string;
+  categoryId: string;
   maxPrice: number;
   sort: string;
 }
 
-const ListProducts: React.FC<Props> = ({ category, maxPrice, sort }) => {
+const ListProducts: React.FC<Props> = async ({ categoryId, maxPrice, sort }) => {
+  const apiExtension = `/subcategories?[filters][categories][$eq]=${categoryId}`;
+  const products = await fetchAPI(apiExtension);
+
   return (
     <section className="flex justify-between flex-wrap gap-5">
-      {mockData.map((item) => (
-        <Card key={item.id} item={item} />
-      ))}
+      {products?.map((item: any) => <Card key={item.id} item={item} />)}
     </section>
   );
 };

@@ -20,13 +20,13 @@ const Navbar = () => {
             <ChevronDownIcon />
           </div>
           <div>
-            <Link href={'/products/women'}>Women</Link>
+            <Link href={'/products/category/1'}>Women</Link>
           </div>
           <div>
-            <Link href={'/products/men'}>Men</Link>
+            <Link href={'/products/category/2'}>Men</Link>
           </div>
           <div>
-            <Link href={'/products/children'}>Children</Link>
+            <Link href={'/products/category/7'}>Children</Link>
           </div>
         </div>
         <div className="text-3xl">

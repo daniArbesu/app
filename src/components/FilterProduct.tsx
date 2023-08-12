@@ -1,29 +1,16 @@
+import FilterProductCategory from './ui/FilterProductCategory';
+
 interface Props {
+  categoryId: string;
   maxPrice: number;
   setMaxPrice: (price: number) => void;
   setSort: (sort: string) => void;
 }
 
-const FilterProduct: React.FC<Props> = ({ maxPrice, setMaxPrice, setSort }) => {
+const FilterProduct: React.FC<Props> = async ({ maxPrice, setMaxPrice, setSort, categoryId }) => {
   return (
     <section className="flex-1 sticky h-full top-12 flex flex-col gap-7">
-      <div>
-        <h3 className="text-xl font-normal mb-5">Product Categories</h3>
-        <div className="flex flex-col gap-2">
-          <div className="flex gap-2">
-            <input type="checkbox" name="" id="1" value={1} />
-            <label htmlFor="1">Shoes</label>
-          </div>
-          <div className="flex gap-2">
-            <input type="checkbox" name="" id="2" value={2} />
-            <label htmlFor="2">Skirts</label>
-          </div>
-          <div className="flex gap-2">
-            <input type="checkbox" name="" id="3" value={3} />
-            <label htmlFor="3">Coats</label>
-          </div>
-        </div>
-      </div>
+      <FilterProductCategory category={categoryId} />
       <div>
         <h3 className="text-xl font-normal mb-5">Filter by price</h3>
         <div>

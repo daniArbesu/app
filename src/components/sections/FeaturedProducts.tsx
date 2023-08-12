@@ -1,4 +1,4 @@
-import { APIData } from '../../../types';
+import fetchAPI from '@/utils/fetchAPI';
 import Card from '../Card';
 
 interface Props {
@@ -44,26 +44,10 @@ interface Props {
   }
 ]; */
 
-const fetchProducts = async () => {
-  try {
-    const url = (process.env.STRAPI_API_URL as string) + '/products?populate=*';
-
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: {
-        Authentication: `bearer ${process.env.STRAPI_API_TOKEN as string}`
-      }
-    });
-
-    const products = await res.json();
-    return products.data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 const FeaturedProducts: React.FC<Props> = async ({ type }) => {
-  const data: APIData[] = await fetchProducts();
+  const apiExtension = `/products?populate=*&[filters][type][$eq]=${type}`;
+
+  const data = await fetchAPI(apiExtension);
 
   return (
     <section className="my-24 mx-52 flex flex-col gap-12">
@@ -77,9 +61,7 @@ const FeaturedProducts: React.FC<Props> = async ({ type }) => {
         </p>
       </div>
       <div className="flex justify-center gap-12">
-        {data.map((item) => (
-          <Card key={item.id} item={item} />
-        ))}
+        {data?.map((item) => <Card key={item.id} item={item} />)}
       </div>
     </section>
   );
