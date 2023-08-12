@@ -1,4 +1,7 @@
+'use client';
 import fetchAPI from '@/utils/fetchAPI';
+import { useState, useEffect } from 'react';
+import { type APISubcategoryData } from '../../../types';
 
 interface Props {
   category: string;
@@ -6,14 +9,15 @@ interface Props {
   setSubcategories: (subcategory: string[] | []) => void;
 }
 
-const FilterProductCategory: React.FC<Props> = async ({
-  category,
-  setSubcategories,
-  subcategories
-}) => {
-  const apiExtension = `/subcategories?[filters][categories]=${category}`;
+const FilterProductCategory: React.FC<Props> = ({ category, setSubcategories, subcategories }) => {
+  const [categorySubcategories, setCategorySubcategories] = useState<APISubcategoryData[] | []>([]);
 
-  const categorySubcategories = await fetchAPI(apiExtension);
+  useEffect(() => {
+    const apiExtension = `/subcategories?[filters][categories]=${category}`;
+    void fetchAPI(apiExtension).then((subcat) => {
+      setCategorySubcategories(subcat);
+    });
+  }, [category]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

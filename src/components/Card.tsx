@@ -12,10 +12,12 @@ const Card: React.FC<Props> = ({ item }) => {
         <div
           style={{
             ['--image-url' as string]: `url(${
-              (process.env.STRAPI_IMAGES_URL as string) + item.attributes?.img?.data.attributes.url
+              (process.env.NEXT_PUBLIC_STRAPI_IMAGES_URL as string) +
+              item.attributes?.img?.data.attributes.url
             })`,
             ['--hover-url' as string]: `url(${
-              (process.env.STRAPI_IMAGES_URL as string) + item.attributes?.img2?.data.attributes.url
+              (process.env.NEXT_PUBLIC_STRAPI_IMAGES_URL as string) +
+              item.attributes?.img2?.data.attributes.url
             })`
           }}
           className="w-full h-96 overflow-hidden relative bg-[image:var(--image-url)] hover:bg-[image:var(--hover-url)] bg-cover "

@@ -1,5 +1,6 @@
 import fetchAPI from '@/utils/fetchAPI';
 import Card from './Card';
+import { useEffect, useState } from 'react';
 
 /* const mockData = [
   {
@@ -47,12 +48,18 @@ interface Props {
   subcategories: string[] | [];
 }
 
-const ListProducts: React.FC<Props> = async ({ categoryId, maxPrice, sort, subcategories }) => {
-  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-  const apiExtension = `/products?populate=*&[filters][categories][id]=${categoryId}${subcategories.map(
-    (subcat) => `&[filters][subcategories][id]=${subcat}`
-  )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`;
-  const products = await fetchAPI(apiExtension);
+const ListProducts: React.FC<Props> = ({ categoryId, maxPrice, sort, subcategories }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    const apiExtension = `/products?populate=*&[filters][categories][id]=${categoryId}${subcategories.map(
+      (subcat) => `&[filters][subcategories][id]=${subcat}`
+    )}&[filters][price][$lte]=${maxPrice}&sort=price:${sort}`;
+    void fetchAPI(apiExtension).then((products) => {
+      setProducts(products);
+    });
+  }, [categoryId, maxPrice, sort, subcategories]);
 
   return (
     <section className="flex justify-between flex-wrap gap-5">

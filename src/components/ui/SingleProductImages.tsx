@@ -11,11 +11,11 @@ const SingleProductImages: React.FC<Props> = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState(0);
 
   const images = [
-    (process.env.STRAPI_IMAGES_URL as string) + product.attributes?.img?.data.attributes.url,
-    (process.env.STRAPI_IMAGES_URL as string) + product.attributes?.img2?.data.attributes.url
+    (process.env.NEXT_PUBLIC_STRAPI_IMAGES_URL as string) +
+      product.attributes?.img?.data.attributes.url,
+    (process.env.NEXT_PUBLIC_STRAPI_IMAGES_URL as string) +
+      product.attributes?.img2?.data.attributes.url
   ];
-
-  console.log(images[selectedImage]);
 
   return (
     <section className="flex-1 flex gap-5">

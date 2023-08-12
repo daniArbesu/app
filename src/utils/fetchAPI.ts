@@ -1,13 +1,16 @@
 const fetchAPI = async (apiExtension: string) => {
   try {
-    const url = (process.env.STRAPI_API_URL as string) + apiExtension;
-
+    const url = (process.env.NEXT_PUBLIC_STRAPI_API_URL as string) + apiExtension;
     const res = await fetch(url);
 
-    const products = await res.json();
-    return products.data;
+    if (!res.ok) {
+      throw new Error('Error while fetching data...');
+    }
+
+    const fetchData = await res.json();
+    return fetchData.data;
   } catch (err) {
-    console.log(err);
+    throw new Error('Error while fetching data...');
   }
 };
 

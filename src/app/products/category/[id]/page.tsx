@@ -13,7 +13,7 @@ type SubcategoriesState = string[] | [];
 const CategoryPage = ({ params }: Segment) => {
   const categoryId = params.id;
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('asc');
   const [subcategories, setSubcategories] = useState<SubcategoriesState>([]);
 
   return (
