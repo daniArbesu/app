@@ -5,11 +5,6 @@ import SingleProductImages from '@/components/ui/SingleProductImages';
 import fetchAPI from '@/utils/fetchAPI';
 import type { APIProductData } from '../../../../types';
 
-/* const mockImages = [
-  'https://images.unsplash.com/photo-1689858266753-937dd7c52986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
-  'https://images.unsplash.com/photo-1689858266569-77430f81a563?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'
-]; */
-
 interface Segment {
   params: { id: string };
 }
@@ -33,10 +28,10 @@ const ItemProductPage = async ({ params }: Segment) => {
           ADD TO CARD
         </button>
         <div className="flex gap-5">
-          <div className="flex gap-2 text-blue-500 text-sm uppercase items-center">
+          <div className="flex gap-2 text-blue-500 text-sm uppercase items-center cursor-pointer">
             <FavoriteIcon /> Add to wish list
           </div>
-          <div className="flex gap-2 text-blue-500 text-sm uppercase items-center">
+          <div className="flex gap-2 text-blue-500 text-sm uppercase items-center cursor-pointer">
             <CompareIcon /> Add to compare
           </div>
         </div>
