@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { type APIData } from '../../types';
+import type { APIProductData } from '../../types';
 
 interface Props {
-  item: APIData;
+  item: APIProductData;
 }
 
 const Card: React.FC<Props> = ({ item }) => {

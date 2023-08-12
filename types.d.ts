@@ -1,8 +1,16 @@
 export interface APIResponse {
-  data: APIData[];
+  data: APIData[] | APIData;
   meta: Meta;
 }
 
+export interface APISubcategoryData {
+  id: number;
+  attributes: Product | Subcategory;
+}
+export interface APIProductData {
+  id: number;
+  attributes: Product;
+}
 export interface APIData {
   id: number;
   attributes: Product | Subcategory;

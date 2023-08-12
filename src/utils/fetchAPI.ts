@@ -1,5 +1,3 @@
-import type { APIData } from '../../types';
-
 const fetchAPI = async (apiExtension: string) => {
   try {
     const url = (process.env.STRAPI_API_URL as string) + apiExtension;
@@ -7,7 +5,7 @@ const fetchAPI = async (apiExtension: string) => {
     const res = await fetch(url);
 
     const products = await res.json();
-    return products.data as APIData[];
+    return products.data;
   } catch (err) {
     console.log(err);
   }
