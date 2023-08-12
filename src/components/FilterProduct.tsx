@@ -5,12 +5,25 @@ interface Props {
   maxPrice: number;
   setMaxPrice: (price: number) => void;
   setSort: (sort: string) => void;
+  subcategories: string[] | [];
+  setSubcategories: (subcategory: string[] | []) => void;
 }
 
-const FilterProduct: React.FC<Props> = async ({ maxPrice, setMaxPrice, setSort, categoryId }) => {
+const FilterProduct: React.FC<Props> = async ({
+  maxPrice,
+  setMaxPrice,
+  setSort,
+  categoryId,
+  subcategories,
+  setSubcategories
+}) => {
   return (
     <section className="flex-1 sticky h-full top-12 flex flex-col gap-7">
-      <FilterProductCategory category={categoryId} />
+      <FilterProductCategory
+        category={categoryId}
+        setSubcategories={setSubcategories}
+        subcategories={subcategories}
+      />
       <div>
         <h3 className="text-xl font-normal mb-5">Filter by price</h3>
         <div>

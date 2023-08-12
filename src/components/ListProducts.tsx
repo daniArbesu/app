@@ -44,9 +44,10 @@ interface Props {
   categoryId: string;
   maxPrice: number;
   sort: string;
+  subcategories: string[] | [];
 }
 
-const ListProducts: React.FC<Props> = async ({ categoryId, maxPrice, sort }) => {
+const ListProducts: React.FC<Props> = async ({ categoryId, maxPrice, sort, subcategories }) => {
   const apiExtension = `/subcategories?[filters][categories][$eq]=${categoryId}`;
   const products = await fetchAPI(apiExtension);
 
